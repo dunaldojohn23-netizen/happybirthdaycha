@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Memories 💛</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #fff8b3; /* soft yellow */
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      overflow: scroll;
+      transition: opacity 1s ease;
+    }
+
+    .intro, .main-content {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .intro h1 {
+      font-size: 2em;
+      color: #d97706;
+      background: rgba(255,255,255,0.8);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .start-btn {
+      background-color: #ffcc33;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: 0.3s;
+      color: #333;
+      font-weight: bold;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .start-btn:hover {
+      background-color: #ffe066;
+      transform: scale(1.05);
+    }
+
+    .main-content {
+      display: none;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 30px;
+      animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h2 {
+      color: #b45309;
+      font-size: 1.8em;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 320px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .popup-content p {
+      color: #b45309;
+      font-size: 1.1em;
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      background-color: #ffcc33;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close-btn:hover {
+      background-color: #ffe066;
+    }
+
+    .message {
+      margin-top: 25px;
+      font-size: 1.2em;
+      color: #b45309;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .message {
+      background: #fffbea;
+      padding: 20px 30px;
+      border-radius: 20px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+      max-width: 600px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .message::before {
+      font-size: 28px;
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fffbea;
+      border-radius: 50%;
+      padding: 5px 10px;
+      box-shadow: 0px 3px 6px rgba(0,0,0,0.15);
+    }
+
+    .highlight {
+      color: #ff7043;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro Page -->
+  <div class="intro" id="intro">
+    <h1>Are you ready?...(eme akala mo jumpscare eh) 🌷</h1>
+    <button class="start-btn" onclick="startSite()">Start</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="mainContent">
+    <h2>🌼 HAPPY BIRTHDAY CHA!!!!! 🌼</h2>
+    <div class="gallery">
+     <img src="us.jpg" alt="memory 1" onclick="showMessage(`Tayo lang dalawa nagpanata nito eh remember? HAHAHAHAHAAHAHAH 💛`)">
+      <img src="us2.jpg" alt="memory 2" onclick="showMessage(`Ito yung pinicturan mo 'ko na hindi ako nakatingin eh HAHAHAAHAHAHAHA 🌷`)">
+      <img src="us3.jpg" alt="memory 3" onclick="showMessage(`Ito yung after natin manood ng it and then sinamahan niyo 'ko magpagupit tapos kumain lang us sa 7/11 💛`)">
+      <img src="us4.jpg" alt="memory 4" onclick="showMessage(`Inaya mo yata ako mag-picture nito eh, after natin mag-panata`)">
+      <img src="us5.jpg" alt="memory 5" onclick="showMessage(`Birthday ni kuya mark ito boi, tapos pinicturan tayo ni 'te pau, TAPOS ITO YUNG NAG-ROAD TRIP TAYO SA E-BIKE`)">
+      <img src="us6.jpg" alt="memory 6" onclick="showMessage(`Pasalamat natin ito boi, ito yung nag-ensayo tayo sa pinagtipunan, and then ito na rin yung huling pagtuturo ni ka keyvin`)">
+      <img src="us7.jpeg" alt="memory 7" onclick="showMessage(`YETG 2024, FIRST PIC WITH U, DABEST TALAGA AHAHAHHAHAHAH(and also, suot mo rin ynug dress na binili namin for u)`)">
+      <img src="us8.jpeg" alt="memory 8" onclick="showMessage(`LAST BPL OF THE YEAR 2024, SOLID DIN 'TO EH HAHAHAAHAHAAHAA`)">
+      <img src="us9.jpg" alt="memory 9" onclick="showMessage(`1/5/25, after tp ng mt, we celebrated thisss kasi bday ni papa 'to, tapos pinicturan tayo ni 'te gellie`)">
+      <img src="us10.jpeg" alt="memory 10" onclick="showMessage(`Pinicturan tayo ni kuya kier, while we're walking papunta sa bahay namin para manood HAHHAHAAHHAAHA`)">
+      <img src="us11.jpg" alt="memory 11" onclick="showMessage(`Pauwi ka na nito eh, after natin i-celebrate with honors ko AHHAHAHAHAA`)">
+      <img src="us12.jpg" alt="memory 12" onclick="showMessage(`WALTERMART GALA WITH U!!! HEHEEHHEEHEH`)">
+      <img src="us13.jpg" alt="memory 13" onclick="showMessage(`WALTERMART GALA ULIT HAHAAHAHAHAHAHA PART 2`)">
+      <img src="us14.jpg" alt="memory 14" onclick="showMessage(`Kiko's part 2 AHAHAHAAHAHAHAHAAH`)">
+      <img src="us15.jpg" alt="memory 15" onclick="showMessage(`Kiko's part 2 ulit AHHAAHAAHAHAH best chika buddy!!!`)">
+      <img src="us16.jpg" alt="memory 16" onclick="showMessage(`First kiko's natin after tupad HAHAAHAHAHHAAHAH`)">
+      <img src="us17.jpg" alt="memory 17" onclick="showMessage(`Cute ng smile mo hereee ngl, it gives 2022-2023 smilee AHAAHAHAAHAHAAAHAAHA 🥰`)">
+    </div>
+
+    <p class="message">
+         HAPPY 17TH BIRTHDAY SCHOOGIRL KALI!!! <span>Grabi, 17 ka na pala? Lapit ka na mag-kadiwa ahhh.</span> Anyways, I hope you have a very gorgeous day right now!!!
+    I cannot imagine na ganito pala magiging friendship natin 'no? By the way, thankyousomuchhhhh for being there for me, you're still in my side kahit marami na tayo
+    pinagdaanan sa isa't isa. Through ups and downs, nandiyan ka parati para sa akin:)))). I would never forget the day na naging close na tayo sa isa't isa, night talks natin,
+    chikahan natin, kain sa 7/11, at marami pang ibaaa. <span>I'm so so sorry for what you had been through for these past few months:(((.</span> I know that it wasn't easy,
+    but here you are, fighting and never giving up on your life:))))). From the bottom of my heart, I know that you can get past those challenges. At kahit gano'n pa man ang
+    mangyari sa buhay mo, nandito lang me para umalalay sa 'yoo po ahhhh:))))? <span>It may be draining, however, I still want you to succeed in your life even with those trials
+    in your life okayy? Don't forget your pagtupad mo po ahhhh? You know that is your strength whenever your life is getting misreable, right? Sana laging mong tandaan na
+    "Manalangin, Manalig, at Magtiwala" especially if nanghihina na ang loob mo po okiiii:))))? I'm so glad that our friendship has gotten this far!! Palagi ko 'yun pinag-
+    papanata sa Ama, na sana mas lalo pa po niyang patatagin ang friendship po natin:))). I sincerely apologize, if we had some misunderstanding, back then huhuhu:((. I didn't
+    mean to do it, hence, I hope na you still accept me as your "bsf":))))). Sana, magtagal pa yung friendship natin, sana gabayan pa tayo ng Ama sa landas ng ating buhay. 
+    Kasi, 'di ko talaga alam kung ano gagawin ko, kapag nawala ka pa sa tabi ko:(((. I alaways cherish our moments together, especially if we eat together at 7/11 after ensayo
+    or pagtupad hehehe. So overalllll, I hope that this day, you will learn new things, accomplish the things that you yearn to achieve, and last but not the least, is to
+    have a new core memory in your life. As you begin this new chapter, may your 17th birthday bring you wisdom ang growth. LASTLY (sorry kung mahaba huhu), I'm so so so
+    thankful for all the memories that we have spent together. I hope this last forever and ever... (eme ang corny) HUWHAUHDUAHEDWUAHO lovelotsss schoolgirl kali/chef kali/
+    roblox girl/sleepygirl/crinkles lover/purok leader ng 7 & 8/best alto hehehe/charice. HAHAHAHAAHHAHA LAHAT NA NG NN EH 'NO? 
+    <br> I’m so grateful for all these moments with you:))))!
+    </p>
+  </div>
+
+  <!-- Popup Box -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <p id="popupText"></p>
+      <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function startSite() {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("mainContent").style.display = "flex"
+    }
+
+    function showMessage(message) {
+      document.getElementById("popupText").innerText = message;
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>
